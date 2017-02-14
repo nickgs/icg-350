@@ -1,0 +1,50 @@
+.headline {
+  color: white;
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+
+  font-family: 'Raleway', sans-serif;
+
+  background-color: #1e2528;
+  padding: 10px;
+  border: 10px solid rgba(141,142,174,.2);
+}
+
+.headline h1 {
+  font-size: 8em;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.headline .highlight {
+  background-color: #8e0000;
+  padding: 2px;
+}
+
+.headline h3 {
+  font-size: 2em;
+}
+
+.headline h5 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.headline h5 a {
+    color: #8e0000;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background: url(../images/overlay-vignette.png);
+    background-size: 100% 100%;
+    opacity: 0;
+}
