@@ -1,5 +1,5 @@
 //the connection radius.
-var cd = 100;
+var cd = 50;
 
 function setup() {
   createCanvas(screen.width,screen.height);
@@ -20,9 +20,9 @@ var Particle = function(position) {
   this.acceleration = createVector(0, 0.05);
   this.velocity = createVector(random(-1,1), random(-1, 0));
   this.position = position.copy();
-  this.lifespan = 255.0;
+  this.lifespan = 155.0;
 
-  this.size = random(100);
+  this.size = random(60);
 };
 
 Particle.prototype.run = function() {
