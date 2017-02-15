@@ -1,5 +1,12 @@
 //the connection radius.
-var cd = 50;
+var connectionField = 50;
+var maxParticleRadius = 50;
+
+var particleColor = {
+  r: 127,
+  g: 127,
+  b: 127
+};
 
 function setup() {
   createCanvas(screen.width,screen.height);
@@ -22,7 +29,7 @@ var Particle = function(position) {
   this.position = position.copy();
   this.lifespan = 155.0;
 
-  this.size = random(60);
+  this.size = random(maxParticleRadius);
 };
 
 Particle.prototype.run = function() {
@@ -39,7 +46,7 @@ Particle.prototype.update = function() {
 Particle.prototype.display = function() {
   stroke(200, this.lifespan);
   strokeWeight(0);
-  fill(127, this.lifespan);
+  fill(particleColor.r, particleColor.g, particleColor.b, this.lifespan);
   ellipse(this.position.x, this.position.y, this.size, this.size);
 };
 
@@ -78,7 +85,7 @@ ParticleSystem.prototype.run = function() {
       var dx = p.position.x - pos.x;
       var dy = p.position.y - pos.y;
 
-      if((dx > -cd && dx < cd) && (dy > -cd && dy < cd) ) {
+      if((dx > -connectionField && dx < connectionField) && (dy > -connectionField && dy < connectionField) ) {
           stroke('rgba(255,255,255,0.25)');
           strokeWeight(1);
           line(p.position.x, p.position.y, pos.x, pos.y);

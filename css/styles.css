@@ -1,4 +1,4 @@
-.headline {
+.headline, .code-with-me {
   color: white;
   position: fixed; /* or absolute */
   top: 50%;
@@ -28,9 +28,11 @@
   font-size: 2em;
 }
 
-.headline h5 {
+.headline h5 a {
     font-size: 1.8em;
     margin: 0;
+    display: block;
+    text-align: center;
 }
 
 .headline h5 a {
@@ -49,6 +51,34 @@
     opacity: 0;
 }
 
+.play a {
+    font-size: 1.8em;
+    margin-top: 20px;
+    display: block;
+    padding: 5px;
+    cursor: pointer;
+    color: #e07700;
+    border: 1px solid;
+    text-align: center;
+}
+
+.code-with-me {
+  display: none;
+  background: rgba(50,50,50,.96);
+}
+
+.code-with-me .close {
+  cursor: pointer;
+  float: right;
+}
+
+.code-with-me .comments {
+  color: #70c5ff;
+}
+
+.code-with-me .token {
+  color: #faa81d;
+}
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : portrait) {
     /* iPhone 6 Portrait */

@@ -7,6 +7,7 @@
   <!--<script language="javascript" src="libraries/p5.dom.js"></script>-->
   <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
   <script language="javascript" type="text/javascript" src="sketch.js"></script>
+  <script language="javascript" type="text/javascript" src="libraries/actions.js"></script>
   <!-- this line removes any default padding and style. you might only need one of these values set. -->
   <link rel="stylesheet" type="text/css" href='css/styles.css'/>
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -18,6 +19,19 @@
     <h1><span class='lowlight'>Code 2</span> <span class='highlight'>Art</span></h1>
     <h3>March 6th, 2017 - 6:30pm @ LaunchPad Huntington</h3>
     <h5><a href="https://www.meetup.com/Long-Island-Visual-Professionals/events/237141001/">RSVP</a></h5>
+    <div class="play">
+      <a onclick="lets_play()">Try Coding now</a>
+    </div>
   </div>
+
+  <div class="code-with-me">
+    <div class='close' onclick='close_me()'>X</div>
+    <p class="comments">// Try coding now.</p>
+    <p class="comments">// Change some of the values below and see what happens.</p>
+    <p><label for='circle-radius'><span class="token">var</span> maxParticleRadius =<input id="circle-radius" value='50' max='1000' maxLength='4' size='4' onchange='change_radius()'/>;</p>
+    <p><label for='connection-field'><span class="token">var</span> connectionField =<input id="connection-field" value='50' max='255' maxLength='3' size='3' onchange='change_connections()'/>;<p>
+    <p><label for='particle-color'><span class="token">var</span> particleColor = rgb(<input id="particle-color-r" value='127' max='255' maxLength='3' size='3' onchange='change_color()'/> <input id="particle-color-g" value='127' max='255' maxLength='3' size='3'  onchange='change_color()'/> <input id="particle-color-b" value='127' max='255' maxLength='3' size='3'  onchange='change_color()'/>);<p>
+  </div>
+
 </body>
 </html>
