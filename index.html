@@ -1,39 +1,54 @@
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
-  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
-  <!-- uncomment lines below to include extra p5 libraries -->
-  <!--<script language="javascript" src="libraries/p5.dom.js"></script>-->
-  <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
-  <script language="javascript" type="text/javascript" src="sketch.js"></script>
-  <script language="javascript" type="text/javascript" src="libraries/actions.js"></script>
-  <!-- this line removes any default padding and style. you might only need one of these values set. -->
-  <link rel="stylesheet" type="text/css" href='css/styles.css'/>
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-  <style> body {padding: 0; margin: 0;} </style>
-</head>
-
-<body>
-  <div class="headline">
-    <h1><span class='lowlight'>ICG</span> <span class='highlight'>150</span></h1>
-    <h3>Intro to creative coding!</h3>
-    <div class="play">
-      <a onclick="lets_play()">Try Coding now</a>
-    </div>
-  </div>
-
-  <div class="code-with-me">
-    <div class='close' onclick='close_me()'>X</div>
-    <p class="comments">// Try coding now.</p>
-    <p class="comments">// Change some of the values below and see what happens.</p>
-    <p><span class="token">var</span> Particle = function(position) {</p>
-    <p class="comments">// Lets describe our particle.</p>
-    <p><label for='circle-radius'><span class="token">var</span> maxParticleRadius =<input id="circle-radius" value='50' max='1000' maxLength='4' size='4' onchange='change_radius()'/>;</p>
-    <p><label for='connection-field'><span class="token">var</span> connectionField =<input id="connection-field" value='50' max='255' maxLength='3' size='3' onchange='change_connections()'/>;<p>
-    <p><label for='particle-color'><span class="token">var</span> particleColor = rgb(<input id="particle-color-r" value='127' max='255' maxLength='3' size='3' onchange='change_color()'/> <input id="particle-color-g" value='127' max='255' maxLength='3' size='3'  onchange='change_color()'/> <input id="particle-color-b" value='127' max='255' maxLength='3' size='3'  onchange='change_color()'/>);<p>
-    <p>}</p>
-  </div>
-
-</body>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ICG-350</title>
+		<meta name="description" content="A collection of decorative animated background shapes powered by WebGL and TweenMax." />
+		<meta name="keywords" content="webgl, background, shape, web design, web development, tweenmax, gsap, animation" />
+		<meta name="author" content="Louis Hoebregts for Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="https://fonts.googleapis.com/css?family=Barlow:400,500,700|Playfair+Display" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo1.css" />
+		<link rel="stylesheet" type="text/css" href="pater/pater.css" />
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+	</head>
+	<body class="demo-1">
+		
+		<main>
+			<div class="content">
+				<canvas class="scene scene--full" id="scene"></canvas>
+				<script type="x-shader/x-vertex" id="wrapVertexShader">
+					attribute float size;
+					attribute vec3 color;
+					varying vec3 vColor;
+					void main() {
+						vColor = color;
+						vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+						gl_PointSize = size * ( 350.0 / - mvPosition.z );
+						gl_Position = projectionMatrix * mvPosition;
+					}
+				</script>
+				<script type="x-shader/x-fragment" id="wrapFragmentShader">
+					varying vec3 vColor;
+					uniform sampler2D texture;
+					void main(){
+						vec4 textureColor = texture2D( texture, gl_PointCoord );
+						if ( textureColor.a < 0.3 ) discard;
+						vec4 color = vec4(vColor.xyz, 1.0) * textureColor;
+						gl_FragColor = color;
+					}
+				</script>
+				<div class="content__inner">
+					<h2 class="content__title">ICG-350</h2>
+					<h3 class="content__subtitle">Interactive Web Development</h2>
+				</div>
+			</div>
+		</main>
+		<script src="js/demo.js"></script>
+		<script src="js/three.min.js"></script>
+		<script src="js/TweenMax.min.js"></script>
+		<script src="js/demo1.js"></script>
+	</body>
 </html>
