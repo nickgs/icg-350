@@ -1,0 +1,28 @@
+h1 {
+    color: red;
+}
+
+/* Any UL element that is a child of a nav will be selected */
+nav ul {
+    display: flex;
+    padding: 0px;
+}
+
+/* Any LI element that is a child of an UL element which is a child of 
+   a nav element will be selected */
+nav ul li {
+    list-style: none;
+} 
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    background-color: red;
+    color: black;
+    margin-right: 5px;
+}
+
+.home {
+    cursor: pointer;
+}
