@@ -9,6 +9,10 @@ h3 {
     font-family: 'Syne Tactile', cursive;
 }
 
+h2 {
+    color: blue;
+}
+
 a {
     text-decoration: none;
 }
