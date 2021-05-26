@@ -1,5 +1,20 @@
 h1 {
     color: red;
+    margin: 0;
+}
+
+h3 {
+    margin: 0;
+    opacity: 0;
+    font-family: 'Syne Tactile', cursive;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2 {
+    color: blue;
 }
 
 /* Any UL element that is a child of a nav will be selected */
@@ -25,4 +40,27 @@ nav ul li a {
 
 .home {
     cursor: pointer;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.hello-card {
+    border: 1px solid black;
+    max-width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.mask {
+    height: 2.5em;
+    overflow: hidden; 
 }
